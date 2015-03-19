@@ -1,0 +1,80 @@
+from random import randint 
+placarJog=0
+placarComp=0
+print ("\nJogador 0")
+print ("Computador 0") 
+while placarJog<=2 and placarComp<=2:
+    number=randint(1,5)
+    guess=int(input("\n Preencha com Tesoura (1), Papel (2), Pedra (3), Lagarto (4), ou Spoke (5)\n"))
+    print("Escolha do Computador", number) 
+    if guess==number:
+            print("\nEmpate")
+    if guess==1 and number==2:
+            print("\nVocê ganhou")
+            placarJog += 1
+    if guess==2 and number==1:
+            print("\nVocê perdeu")
+            placarComp += 1
+    if guess==2 and number==3:
+            print("\nVocê ganhou")
+            placarJog += 1
+    if guess==3 and number==2:
+            print("\nVocê perdeu")
+            placarComp += 1
+    if guess==3 and number==4:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==4 and number==3:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==4 and number==5:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==5 and number==4:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==5 and number==1:
+             print ("\nVocê ganhou")
+             placarJog += 1
+    if guess==1 and number==5:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==1 and number==4:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==4 and number==1:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==4 and number ==2:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==2 and number==4:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==2 and number==5:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==5 and number==2:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==5 and number ==3:
+            print ("\nVocê ganhou")
+            placarJog += 1
+    if guess==3 and number==5:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if guess==3 and number==1:
+            print("\nVocê ganhou")
+            placarJog += 1
+    if guess==1 and number==3:
+            print ("\nVocê perdeu")
+            placarComp += 1
+    if placarJog==3 and placarComp<3:
+            print("\n Você Ganhou o Jogo!")
+    if placarComp==3 and placarJog<3:
+            print("\n Você Perdeu o Jogo!")
+    if placarJog!=0 and placarComp!=0:
+        placarJog=0
+        placarComp=0
+    print ("\nJogador",placarJog) 
+    print ("Computador",placarComp)
