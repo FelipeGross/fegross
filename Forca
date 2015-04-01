@@ -1,0 +1,180 @@
+
+import random
+import turtle
+erros=0 
+
+arquivo = open("entrada.txt","r+", encoding="utf-8")
+read = arquivo.readlines()
+palavra=random.choice(read).lower()
+palavra = palavra.strip()
+len(palavra)
+
+if len(palavra) < 1:
+    random.choice(read)
+    palavra=random.choice(read)
+    palavra = palavra.strip()
+print(len(palavra))
+print (palavra)
+
+window = turtle.Screen()
+window.bgcolor("black")
+window.title("Forca")
+
+tartaruga1=turtle.Turtle()
+tartaruga1.speed(3)
+tartaruga1.up()
+tartaruga1.setpos(-500,-200)
+tartaruga1.down()
+tartaruga1.color("red")
+
+tartaruga2=turtle.Turtle()
+tartaruga2.speed(2)
+tartaruga2.up()
+tartaruga2.setpos(-800,-300)
+tartaruga2.down()
+tartaruga2.color("red")
+
+tartaruga3=turtle.Turtle()
+tartaruga3.speed(2)
+tartaruga3.up()
+tartaruga3.setpos(-800,-300)
+tartaruga3.down()
+tartaruga3.color("red")
+
+dist1=40
+dist2=200
+dist3=350
+
+angulo1=30
+angulo2=60
+angulo3=90
+angulo4=180
+
+tartaruga1.left(angulo3)
+tartaruga1.forward(dist3*1.6)
+tartaruga1.right(angulo3)
+tartaruga1.forward(dist2*1.6)
+tartaruga1.right(angulo3)
+tartaruga1.forward(dist1*1.6)    
+
+for f in range (len(palavra)):
+    tartaruga2.down()
+    #tartaruga2.write(palavra[f])
+    if " " == palavra[f]:
+        tartaruga2.up()
+        tartaruga2.forward(dist1*1.3)
+        tartaruga2.down()
+    else:
+        tartaruga2.forward(dist1)
+        tartaruga2.up()
+        tartaruga2.forward(dist1*0.6)
+
+acertos=[]
+erros2=[]
+
+while erros <= 5:
+    t=window.textinput("Forca","Digite uma letra. Faça o seu chute")
+    #tartaruga2.write(t, font=("Times New Roman", 32))    
+      
+    if t in acertos:
+        tartaruga2.write(("Letra já digitada"), font=("Times New Roman", 32))
+    else:
+        acertos+=t
+
+    tartaruga3.setpos(-800,-300)
+    for f in range (len(palavra)):
+            tartaruga3.down()
+            if t == palavra[f]:
+                tartaruga3.write(palavra[f])
+            else:
+                if " " == palavra[f]:
+                   tartaruga3.up()
+                   tartaruga3.forward(dist1*1.3)
+                   tartaruga3.down()
+                else:
+                    tartaruga3.forward(dist1)
+                    tartaruga3.up()
+                    tartaruga3.forward(dist1*0.6)
+
+
+    for i in range (len(acertos)):
+         if acertos[i] in palavra:
+            True
+            
+            
+         else: 
+            erros+=1
+    
+
+
+
+'''
+    for f in range (len(palavra)):
+        tartaruga3.down()
+        if t == palavra[f]:
+           tartaruga3.write(palavra[f])
+        else:
+    
+            if " " == palavra[f]:
+                tartaruga3.up()
+                tartaruga3.forward(dist1*1.3)
+                tartaruga3.down()
+            else:
+                tartaruga3.forward(dist1)
+                tartaruga3.up()
+                tartaruga3.forward(dist1*0.6)
+'''
+    
+if erros==1:
+    tartaruga1.right(angulo3)
+    tartaruga1.circle(30)    
+    erros==0            
+
+if erros==2:
+    tartaruga1.up()
+    tartaruga1.left(angulo3)
+    tartaruga1.forward(dist1*1.5)
+    tartaruga1.down()
+    tartaruga1.forward(dist1*3)
+    erros==0                    
+
+if erros==3:
+    tartaruga1.right(angulo1)
+    tartaruga1.forward(dist1*1.7)
+    erros==0                    
+
+if erros==4:
+    tartaruga1.right(angulo4)
+    tartaruga1.forward(dist1*1.7)
+    tartaruga1.right(angulo1*4)
+    tartaruga1.forward(dist1*1.7)
+    erros==0                    
+
+if erros==5:
+    tartaruga1.left(angulo4)
+    tartaruga1.forward(dist1*1.7)
+    tartaruga1.right(angulo1)
+    tartaruga1.forward(dist1*2.3)
+    tartaruga1.right(angulo2*2)
+    tartaruga1.forward(dist1*1.4)
+    erros==0                    
+
+if erros==6:
+    tartaruga1.left(angulo4)
+    tartaruga1.forward(dist1*1.4)
+    tartaruga1.left(angulo2)
+    tartaruga1.forward(dist1*1.4)
+    erros==0                    
+
+if erros==6:
+    tartaruga2.left(angulo2)            
+    tartaruga2.forward(dist2*0.8)            
+    tartaruga2.write(("Você Perdeu!\nClique no botão\nesquerdo do mouse\npara sair."), font=("Times New Roman", 32))
+    erros==0                
+
+for palavra in read:
+    read.remove(palavra)    
+        
+window.exitonclick()
+
+
